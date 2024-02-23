@@ -2,10 +2,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
-const cors=require("cors");
 require("dotenv").config()
+const cors=require("cors")
 const app = express();
-const port = process.env.PORT;
+
 app.use(cors())
 // Connect to MongoDB
 mongoose.connect(process.env.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -19,6 +19,7 @@ const audioSchema = new mongoose.Schema({
 });
 
 const Audio = mongoose.model('Audio', audioSchema);
+
 
 // Set up multer for file uploads
 const upload = multer({ dest: 'uploads/' });
@@ -46,6 +47,6 @@ app.get('/files', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
