@@ -2,8 +2,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const cors=require("cors");
+require("dotenv").config()
 const app = express();
-const cors=require("cors")
 const port = process.env.PORT;
 app.use(cors())
 // Connect to MongoDB
