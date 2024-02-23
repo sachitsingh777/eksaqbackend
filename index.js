@@ -1,12 +1,11 @@
 // index.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
-
 const app = express();
+const cors=require("cors")
 const port = process.env.PORT;
-
+app.use(cors())
 // Connect to MongoDB
 mongoose.connect(process.env.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
